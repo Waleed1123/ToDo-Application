@@ -1,7 +1,7 @@
 var ulParent = document.getElementById("ulParent");
 var input = document.getElementById("todoInput");
 
-function addTodo(params) {
+function addTodo() {
   if(!input.value) {
     alert("Enter Todo Value Please!")
     return
@@ -21,7 +21,7 @@ function addTodo(params) {
   editBtn.setAttribute("onclick", "editTodo(this)");
   deleteBtn.innerHTML= "Delete";
 
-  deleteBtn.setAttribute("onclick" , "deleteTodo()");
+  deleteBtn.setAttribute("onclick" , "deleteTodo(this)");
 
   editBtn.className= "btn btn-info "
   deleteBtn.className= "btn btn-danger"
@@ -56,10 +56,14 @@ function editTodo(el){
   li.firstChild.nodeValue = editValue;
 };
 
-function deleteBtn(elem){
+function deleteTodo(elem){
   elem.parentNode.parentNode.remove()
 };
 
 function deleteAll(){
   ulParent.innerHTML = ""
 }
+
+
+
+
